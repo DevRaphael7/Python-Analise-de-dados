@@ -119,25 +119,25 @@ print("\n", vazio)
      [1. 1. 1. 1.]
      [1. 1. 1. 1.]]
     
-     [[[1.06167121e-153 1.02405275e-259]
-      [2.59345432e+161 1.96567221e-062]
-      [6.01347002e-154 4.02456140e-066]
-      [2.65862903e-260 4.88711530e+199]]
+     [[[0. 0.]
+      [0. 0.]
+      [0. 0.]
+      [0. 0.]]
     
-     [[2.34840919e+251 5.30282495e+180]
-      [6.19633416e+223 1.02188594e-152]
-      [1.06263900e+248 9.13606195e+242]
-      [5.98129786e-154 7.26589776e+223]]
+     [[0. 0.]
+      [0. 0.]
+      [0. 0.]
+      [0. 0.]]
     
-     [[2.85653324e+256 3.75829305e+199]
-      [5.28599633e-085 8.30293280e-114]
-      [1.10344405e-012 4.27192341e+270]
-      [1.03234124e-259 2.25563609e-153]]
+     [[0. 0.]
+      [0. 0.]
+      [0. 0.]
+      [0. 0.]]
     
-     [[6.01346953e-154 1.35717430e+131]
-      [8.01768645e-096 9.13553923e+242]
-      [1.05121177e-153 8.15766128e+140]
-      [1.87725413e-009 6.01736108e+175]]]
+     [[0. 0.]
+      [0. 0.]
+      [0. 0.]
+      [0. 0.]]]
     
 
 # **arange( )**
@@ -831,25 +831,25 @@ print('\nVerificando onde estão os elementos negativos: \n', Randomico < 0)
 
     
     Matriz original: 
-     [[-2.29601876 -1.2380051  -2.08027366]
-     [-1.90981945 -0.05363473 -0.23934959]
-     [ 0.06683571  0.98404896 -0.01453807]
-     [-0.35947102 -0.14952049 -0.42265107]
-     [ 0.48435788 -1.58611946  1.19173757]]
+     [[-0.99079562  1.01181049  0.86401586]
+     [-0.64406682  0.48386261 -0.69971868]
+     [ 2.16843313  0.17246836 -1.25798021]
+     [ 0.30799375 -1.46540739 -1.0959528 ]
+     [-0.83963889  1.11747869 -0.89921753]]
     
     Matriz adulterada: 
-     [[0.         0.         0.        ]
-     [0.         0.         0.        ]
-     [0.06683571 0.98404896 0.        ]
-     [0.         0.         0.        ]
-     [0.48435788 0.         1.19173757]]
+     [[0.         1.01181049 0.86401586]
+     [0.         0.48386261 0.        ]
+     [2.16843313 0.17246836 0.        ]
+     [0.30799375 0.         0.        ]
+     [0.         1.11747869 0.        ]]
     
     Verificando onde estão os elementos negativos: 
-     [[False False False]
-     [ True False False]
-     [ True False False]
+     [[False False  True]
      [False  True  True]
-     [False  True False]]
+     [False  True False]
+     [ True  True False]
+     [False  True  True]]
     
 
 
@@ -863,11 +863,11 @@ print(X_Um)
 #todos os itens o qual queremos trabalhar.
 ```
 
-    [[1.         1.         1.22931385 1.         1.        ]
-     [1.66237215 1.58066    1.         1.         1.        ]
-     [1.         1.         1.         1.         1.77292571]
-     [1.54640085 1.         1.         1.         1.43927412]
-     [1.         1.         1.         1.         1.        ]]
+    [[1.         1.25874674 1.         1.         1.        ]
+     [1.         1.         1.         1.         1.        ]
+     [1.27392644 1.         1.         1.08771556 1.        ]
+     [1.         1.         1.         1.         1.13484655]
+     [1.         1.         1.0537275  1.         1.        ]]
     
 
 ## **Funções de estatísticas e mateméticas para Analise de Dados**
@@ -1048,7 +1048,7 @@ array_um = pd.Series([6, 9, 10, 23], index=['a', 'b', 'c', 'd'])
 
 print('Primeiro exemplo: \n{}'.format(array_um))
 
-array_um = pd.Series([10, 3, 4, 6], index=['a'])
+array_um = pd.Series([10, 3, 4, 6], index=['a', 'b', 'c', 'd'])
 
 
 print('Segundo exemplo: \n{}'.format(array_um))
@@ -1060,31 +1060,13 @@ print('Segundo exemplo: \n{}'.format(array_um))
     c    10
     d    23
     dtype: int64
+    Segundo exemplo: 
+    a    10
+    b     3
+    c     4
+    d     6
+    dtype: int64
     
-
-
-    ---------------------------------------------------------------------------
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-32-88f6de9a8c84> in <module>
-          8 print('Primeiro exemplo: \n{}'.format(array_um))
-          9 
-    ---> 10 array_um = pd.Series([10, 3, 4, 6], index=['a'])
-         11 
-         12 
-    
-
-    F:\Programas\Anaconda\lib\site-packages\pandas\core\series.py in __init__(self, data, index, dtype, name, copy, fastpath)
-        311                 try:
-        312                     if len(index) != len(data):
-    --> 313                         raise ValueError(
-        314                             f"Length of passed values is {len(data)}, "
-        315                             f"index implies {len(index)}."
-    
-
-    ValueError: Length of passed values is 4, index implies 1.
-
 
 Observe que no segundo exemplo eu apenas informei o primeiro índice mas não os índices seguintes, logo uma mensagem de erro será impressa.
 
@@ -1099,6 +1081,11 @@ print(array_um['j'])# Acessando cinco
 print(array_um['l'])# Acessando seis
 ```
 
+    3
+    5
+    6
+    
+
 ## Atribuindo dados por meio de índice personalizado
 
 
@@ -1108,6 +1095,10 @@ print(array_um['k'])
 array_um['j'] = 34
 print(array_um['j'])
 ```
+
+    5
+    34
+    
 
 ## Condicionais para Series em Pandas 
 
@@ -1128,6 +1119,27 @@ print('\n{}\n'.format(array_um[array_um > 5]))
 print('\n{}\n'.format(array_um[array_um < 0]))
 ```
 
+    
+    0     5
+    1     6
+    2     8
+    3    10
+    4     2
+    5    -2
+    dtype: int64
+    
+    
+    1     6
+    2     8
+    3    10
+    dtype: int64
+    
+    
+    5   -2
+    dtype: int64
+    
+    
+
 ## Operações aritméticas com Series
 
 
@@ -1143,6 +1155,47 @@ print('Divisão: \n{}\n'.format(array_um / 2))
 
 np.square(array_um)
 ```
+
+    Soma: 
+    0    12
+    1    22
+    2    32
+    3    42
+    dtype: int64
+    
+    Subtração: 
+    0     6
+    1    16
+    2    26
+    3    36
+    dtype: int64
+    
+    Multiplicação: 
+    0    20
+    1    40
+    2    60
+    3    80
+    dtype: int64
+    
+    Divisão: 
+    0     5.0
+    1    10.0
+    2    15.0
+    3    20.0
+    dtype: float64
+    
+    
+
+
+
+
+    0     100
+    1     400
+    2     900
+    3    1600
+    dtype: int64
+
+
 
 ## Dicionários em Pandas
 
@@ -1160,6 +1213,12 @@ array_dicio = pd.Series(regiao)
 print(array_dicio)
 ```
 
+    Pais             Brasil
+    Estado        São Paulo
+    Habitantes    500000000
+    dtype: object
+    
+
 Observe que ao colocar um dicionário no array do Pandas, não obtivemos um índice para cada dado, podemos ter um índice se inserimos um argumento no parâmetro do index
 
 
@@ -1169,6 +1228,14 @@ number = ['Pais', 'Estado', 'Habitantes', 4, 5]
 array_dc = pd.Series(regiao, index=number)
 print(array_dc)
 ```
+
+    Pais             Brasil
+    Estado        São Paulo
+    Habitantes    500000000
+    4                   NaN
+    5                   NaN
+    dtype: object
+    
 
 **Observe.:** veja que o array faz uma busca na lista de **number**, veja que não foram encontrados o dado para o índice 4 e 5, então o resultado é **NaN**, que significa "Não a um Número", Not a Number. Para os índices encontrados o dado é mostrado normalmente.
 
@@ -1189,15 +1256,67 @@ print('\n', pd.isnull(array_um))
 print('\n', pd.notnull(array_um))
 ```
 
+    
+     Casa          False
+    Anfiltrião    False
+    4              True
+    1              True
+    8              True
+    1              True
+    2              True
+    3              True
+    dtype: bool
+    
+     Casa           True
+    Anfiltrião     True
+    4             False
+    1             False
+    8             False
+    1             False
+    2             False
+    3             False
+    dtype: bool
+    
+
 
 ```python
 array_um.isnull()
 ```
 
 
+
+
+    Casa          False
+    Anfiltrião    False
+    4              True
+    1              True
+    8              True
+    1              True
+    2              True
+    3              True
+    dtype: bool
+
+
+
+
 ```python
 array_um.notnull()
 ```
+
+
+
+
+    Casa           True
+    Anfiltrião     True
+    4             False
+    1             False
+    8             False
+    1             False
+    2             False
+    3             False
+    dtype: bool
+
+
 
 Em Pandas temos um atributo chamado de **name**, pense nele como um 'metadado' que diz o que é aquela tabela de dados
 
@@ -1218,6 +1337,21 @@ array_geografia.index.name = 'Id  Paises'
 array_geografia
 ```
 
+    0    Brasil
+    1       EUA
+    Name: Paises, dtype: object
+    
+
+
+
+
+    Id  Paises
+    0    Brasil
+    1       EUA
+    Name: Paises, dtype: object
+
+
+
 Uma maneira mais limpa de atribuir índice de uma série é através de .index
 
 
@@ -1236,6 +1370,20 @@ array_tr.index = ['a', 'b', 'c']
 print(array_tr)
 ```
 
+    0    10
+    1     3
+    2     5
+    dtype: int64
+    1    10
+    2     3
+    3     5
+    dtype: int64
+    a    10
+    b     3
+    c     5
+    dtype: int64
+    
+
 ### b) DataFrame
 
 Um dataframe, como o próprio nome já diz, data quer dizer dados em português e frame quer dizer quadro em português, fazendo a junção dessas palavras temos: Quadro de dados. Um DataFrame representa uma tabela de dados retangular e contém uma coleção ordenadas de colunas, em que cada coluna tem um dado diferente(numérico, caractere, booleano, etc.). Os DataFrames assim como as Series tem um índice tanto para as linhas quanto para as colunas.
@@ -1251,6 +1399,68 @@ frame = pd.DataFrame(dicio)
 
 frame
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Estado</th>
+      <th>Habitantes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>São Paulo</td>
+      <td>10000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Rio de Janeiro</td>
+      <td>20000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Amazônia</td>
+      <td>30000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Acre</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Rondônia</td>
+      <td>890</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Paraná</td>
+      <td>133434</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 Observe que através de um dicionário construimos a nossa primeira tabela de dados em Pandas. Veja que a sintaxe do código para fazer um quadro é:
 
@@ -1271,6 +1481,36 @@ O atributo head( ) realiza a mesma operação que pd.DataFrame(), mas ele só se
 ```python
 frame.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Sequência de colunas
 
@@ -1294,6 +1534,22 @@ frame = pd.DataFrame(obito, columns=['Mortes','Paises', 'Cidade'])
 print(frame)
 ```
 
+          Paises  Mortes
+    0     Brasil  330000
+    1        EUA   40000
+    2  Venezuela  344444 
+    
+       Mortes     Paises
+    0  330000     Brasil
+    1   40000        EUA
+    2  344444  Venezuela 
+    
+       Mortes     Paises Cidade
+    0  330000     Brasil    NaN
+    1   40000        EUA    NaN
+    2  344444  Venezuela    NaN
+    
+
 Assim como as Series é possível "customizar" o seu índice com o parâmetro index: 
 
 
@@ -1302,6 +1558,12 @@ frame = pd.DataFrame(obito, columns=['Mortes','Paises'], index=[30, 29, 28])
 
 print(frame)
 ```
+
+        Mortes     Paises
+    30  330000     Brasil
+    29   40000        EUA
+    28  344444  Venezuela
+    
 
 As colunas e linhas de um **DataFrame** também pode ser obtida através do nome da coluna entre colchetes e com o atributo loc( ), podemos obter a linha inserindo o seu índice entre parênteses:
 
@@ -1324,6 +1586,29 @@ print(frame.Paises,'\n')
 frame.loc[30]
 ```
 
+    
+    
+    30    330000
+    29     40000
+    28    344444
+    Name: Mortes, dtype: int64 
+    
+    30       Brasil
+    29          EUA
+    28    Venezuela
+    Name: Paises, dtype: object 
+    
+    
+
+
+
+
+    Mortes    330000
+    Paises    Brasil
+    Name: 30, dtype: object
+
+
+
 ## Atribuindo uma nova coluna com ou não array de valores
 
 - Inserir o nome da nova coluna entre colchetes
@@ -1337,6 +1622,12 @@ frame['Nova_coluna'] = array_valor
 print(frame)
 ```
 
+        Mortes     Paises  Nova_coluna
+    30  330000     Brasil           10
+    29   40000        EUA           20
+    28  344444  Venezuela           30
+    
+
 Agora usando Numpy
 
 
@@ -1347,6 +1638,12 @@ frame['Nova_coluna_2'] = array_valor
 
 print(frame)
 ```
+
+        Mortes     Paises  Nova_coluna  Nova_coluna_2
+    30  330000     Brasil           10              1
+    29   40000        EUA           20              2
+    28  344444  Venezuela           30              3
+    
 
 **Obs.:** quando você estiver atribuindo novos valores de um array, seja uma lista ou um array unidimensional de Numpy, não esqueça de que o tamanho deve ser igual ao DataFrame.
 
@@ -1366,6 +1663,14 @@ del(t[0])
 print('\n', t)
 ```
 
+    0    [10, 2, 5, 8]
+    1    [23, 4, 6, 7]
+    dtype: object
+    
+     1    [23, 4, 6, 7]
+    dtype: object
+    
+
 Com os DataFrame
 
 
@@ -1384,6 +1689,10 @@ del(t['A'])
 print(t.columns)
 ```
 
+    Index(['A', 'B'], dtype='object')
+    Index(['B'], dtype='object')
+    
+
 ### Dicionarios aninhados em DataFrames
 
 Quando atribuimos um dicionario aninhado ao nosso DataFrame, o Pandas interpreta as chaves como colunas, e as chaves internas( como Nome e Linha) como linhas. 
@@ -1400,12 +1709,96 @@ t = pd.DataFrame(dicionario)
 t
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Cliente</th>
+      <th>Loja</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Nome</th>
+      <td>Lucas</td>
+      <td>[Delivery]</td>
+    </tr>
+    <tr>
+      <th>Senha</th>
+      <td>[1020, 780]</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 Abaixo temos a **transposição** do nosso DataFrame, ou seja, trocar linhas por colunas e colunas por linhas:
 
 
 ```python
 t.T #o parâmetro .T é transposição.
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Nome</th>
+      <th>Senha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cliente</th>
+      <td>Lucas</td>
+      <td>[1020, 780]</td>
+    </tr>
+    <tr>
+      <th>Loja</th>
+      <td>[Delivery]</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 Matriz de Numpy para DataFrames
 
@@ -1418,6 +1811,14 @@ t = pd.DataFrame(matriz, index=['Números','Senhas'])
 t.values 
 # Retorna somente os valores em formato de array bidimensional
 ```
+
+
+
+
+    array([[34, 56, 89],
+           [67, 43, 12]])
+
+
 
 ### Index
 
@@ -1435,6 +1836,11 @@ array_2 = pd.Index(np.arange(1, 11))
 print(array_2)
 ```
 
+    Index(['a', 'b', 'c', 'd'], dtype='object') 
+    
+    Int64Index([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], dtype='int64')
+    
+
 
 ```python
 dicio = {'EUA':[233], 'Brasil':[344]}
@@ -1445,9 +1851,23 @@ t = pd.DataFrame(dicio, index=[25, 24])
 ```
 
 
+
+
+    True
+
+
+
+
 ```python
 'EUA' in t.columns
 ```
+
+
+
+
+    True
+
+
 
 Um index em Pandas pode ser redundante:
 
@@ -1457,6 +1877,53 @@ teste = pd.DataFrame(np.arange(4), index=[1, 2, 1, 2])
 
 teste
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### Métodos para Index
 
@@ -1480,9 +1947,23 @@ array_um.append(array_dois)
 ```
 
 
+
+
+    Int64Index([4, 5, 6, 7, 5, 7, 8, 9], dtype='int64')
+
+
+
+
 ```python
 array_um.difference(array_dois)
 ```
+
+
+
+
+    Int64Index([4, 6], dtype='int64')
+
+
 
 
 ```python
@@ -1490,9 +1971,23 @@ array_um.union(array_dois)
 ```
 
 
+
+
+    Int64Index([4, 5, 6, 7, 8, 9], dtype='int64')
+
+
+
+
 ```python
 array_um.unique() # dados sem redundância
 ```
+
+
+
+
+    Int64Index([4, 5, 6, 7], dtype='int64')
+
+
 
 ### reindex()
 
@@ -1505,10 +2000,30 @@ array_teste
 ```
 
 
+
+
+    b    4
+    c    6
+    a    7
+    dtype: int64
+
+
+
+
 ```python
 array_teste = array_teste.reindex(['a', 'b', 'c'])
 array_teste
 ```
+
+
+
+
+    a    7
+    b    4
+    c    6
+    dtype: int64
+
+
 
 Veja como o reindex organiza o nosso array de índice
 
@@ -1523,12 +2038,98 @@ array_teste
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pessoas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 # observe que as colunas também podem ser alteradas
 #com o parâmetro columns de reindex( )
 array_teste = array_teste.reindex(columns=['Substituindo'])
 array_teste
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Substituindo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### Descartando índices
 
@@ -1541,6 +2142,20 @@ array_teste = pd.Series(np.arange(11.), index=np.arange(11))
 print(array_teste)
 ```
 
+    0      0.0
+    1      1.0
+    2      2.0
+    3      3.0
+    4      4.0
+    5      5.0
+    6      6.0
+    7      7.0
+    8      8.0
+    9      9.0
+    10    10.0
+    dtype: float64
+    
+
 
 ```python
 array_teste2 = array_teste.drop(1)
@@ -1548,10 +2163,42 @@ array_teste2
 ```
 
 
+
+
+    0      0.0
+    2      2.0
+    3      3.0
+    4      4.0
+    5      5.0
+    6      6.0
+    7      7.0
+    8      8.0
+    9      9.0
+    10    10.0
+    dtype: float64
+
+
+
+
 ```python
 array_teste2 = array_teste.drop([2, 4, 5])
 array_teste2
 ```
+
+
+
+
+    0      0.0
+    1      1.0
+    3      3.0
+    6      6.0
+    7      7.0
+    8      8.0
+    9      9.0
+    10    10.0
+    dtype: float64
+
+
 
 ### Indexação de arrays em Pandas
 
@@ -1567,10 +2214,29 @@ print(array['d'])
 print(array['e'])
 ```
 
+    2
+    4
+    6
+    8
+    10
+    
+
 
 ```python
 array[0:]
 ```
+
+
+
+
+    a     2
+    b     4
+    c     6
+    d     8
+    e    10
+    dtype: int64
+
+
 
 
 ```python
@@ -1578,14 +2244,45 @@ array[1:]
 ```
 
 
+
+
+    b     4
+    c     6
+    d     8
+    e    10
+    dtype: int64
+
+
+
+
 ```python
 array[:]
 ```
 
 
+
+
+    a     2
+    b     4
+    c     6
+    d     8
+    e    10
+    dtype: int64
+
+
+
+
 ```python
 array[1:2]
 ```
+
+
+
+
+    b    4
+    dtype: int64
+
+
 
 ### Filtragem com Series
 
@@ -1595,9 +2292,30 @@ array[array > 4]
 ```
 
 
+
+
+    c     6
+    d     8
+    e    10
+    dtype: int64
+
+
+
+
 ```python
 array[array != 2]
 ```
+
+
+
+
+    b     4
+    c     6
+    d     8
+    e    10
+    dtype: int64
+
+
 
 ### Fatiamento com Series
 
@@ -1607,11 +2325,33 @@ array['b':'d']
 ```
 
 
+
+
+    b    4
+    c    6
+    d    8
+    dtype: int64
+
+
+
+
 ```python
 # Atribuindo valor com fatiamento.
 array['a':'d'] = 5
 array
 ```
+
+
+
+
+    a     5
+    b     5
+    c     5
+    d     5
+    e    10
+    dtype: int64
+
+
 
 ### Filtragem com DataFrame
 
@@ -1623,15 +2363,156 @@ array
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Valor</th>
+      <th>Numero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>45</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>67</td>
+      <td>31</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 array > 5
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Valor</th>
+      <th>Numero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
 array[array > 40] = 10
 array
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Valor</th>
+      <th>Numero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10</td>
+      <td>31</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### loc e Iloc
 
@@ -1644,10 +2525,27 @@ array.loc[0]
 ```
 
 
+
+
+    Valor     23
+    Numero    23
+    Name: 0, dtype: int64
+
+
+
+
 ```python
 # Selecionando um linha e colunas específicas
 array.loc[0, ['Valor']]
 ```
+
+
+
+
+    Valor    23
+    Name: 0, dtype: int64
+
+
 
 Veja que a sintaxe é:
     
@@ -1659,9 +2557,26 @@ array.iloc[0]
 ```
 
 
+
+
+    Valor     23
+    Numero    23
+    Name: 0, dtype: int64
+
+
+
+
 ```python
 array.iloc[0, [1]]
 ```
+
+
+
+
+    Numero    23
+    Name: 0, dtype: int64
+
+
 
 Leia isso como "selecione a linha 0 e a coluna 1, que é a coluna Número"
 
@@ -1671,10 +2586,27 @@ array.iloc[0, [0]]
 ```
 
 
+
+
+    Valor    23
+    Name: 0, dtype: int64
+
+
+
+
 ```python
 # Selecionando as duas colunas
 array.iloc[0, [0, 1]]
 ```
+
+
+
+
+    Valor     23
+    Numero    23
+    Name: 0, dtype: int64
+
+
 
 ## Método matemáticos do Pandas
 
@@ -1697,9 +2629,31 @@ s1.add(s2)
 ```
 
 
+
+
+    0     4
+    1     9
+    2    13
+    3    16
+    dtype: int64
+
+
+
+
 ```python
 s1.sub(s2)
 ```
+
+
+
+
+    0    0
+    1   -1
+    2   -3
+    3   -4
+    dtype: int64
+
+
 
 
 ```python
@@ -1707,9 +2661,31 @@ s1.div(s2)
 ```
 
 
+
+
+    0    1.000
+    1    0.800
+    2    0.625
+    3    0.600
+    dtype: float64
+
+
+
+
 ```python
 s1.floordiv(s2)
 ```
+
+
+
+
+    0    1
+    1    0
+    2    0
+    3    0
+    dtype: int64
+
+
 
 
 ```python
@@ -1717,9 +2693,31 @@ s1.mul(s2)
 ```
 
 
+
+
+    0     4
+    1    20
+    2    40
+    3    60
+    dtype: int64
+
+
+
+
 ```python
 s1.pow(s2)
 ```
+
+
+
+
+    0           4
+    1        1024
+    2      390625
+    3    60466176
+    dtype: int64
+
+
 
 ### Ordenação e classificação
 
@@ -1734,10 +2732,32 @@ array.sort_index()
 ```
 
 
+
+
+    3    23
+    4    98
+    5    56
+    6    45
+    dtype: int64
+
+
+
+
 ```python
 array = pd.Series([23, 450, 96, 122], index=[23, 22, 21, 20])
 array.sort_index()
 ```
+
+
+
+
+    20    122
+    21     96
+    22    450
+    23     23
+    dtype: int64
+
+
 
 Podemos ordenar também um DataFrame.
 
@@ -1747,12 +2767,122 @@ frame = pd.DataFrame(np.arange(12).reshape(3, 4), index=[4, 2, 3])
 frame.sort_index()
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 O parâmetro Axis ordena de maneira crescente os dados dentro de uma coluna, e não do array de índices:
 
 
 ```python
 frame.sort_index(axis=1)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 Os dados são ordenados em ordem crescente por padrão, mas podem ser ordenados de forma descrecente se inserimos o parâmetro Axis dentro dos parênteses:
 
@@ -1761,12 +2891,78 @@ Os dados são ordenados em ordem crescente por padrão, mas podem ser ordenados 
 frame.sort_index(ascending=False)
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 Funciona com as Series também:
 
 
 ```python
 array.sort_index(ascending=False)
 ```
+
+
+
+
+    23     23
+    22    450
+    21     96
+    20    122
+    dtype: int64
+
+
 
 Para ordenar uma Series de acordo com seus valores, utilizamos sort_values():
 
@@ -1777,10 +2973,33 @@ array.sort_values()
 ```
 
 
+
+
+    23     23
+    21     96
+    20    122
+    22    450
+    dtype: int64
+
+
+
+
 ```python
 array = pd.Series([2, 3, -1, 0, 5], index=['a', 'b', 'c', 'd', 'c'])
 array.sort_values()
 ```
+
+
+
+
+    c   -1
+    d    0
+    a    2
+    b    3
+    c    5
+    dtype: int64
+
+
 
 Em ordem descrecente inserimos o parâmetro ascending igual a sort_index( )
 
@@ -1788,6 +3007,18 @@ Em ordem descrecente inserimos o parâmetro ascending igual a sort_index( )
 ```python
 array.sort_values(ascending=False)
 ```
+
+
+
+
+    c    5
+    b    3
+    a    2
+    d    0
+    c   -1
+    dtype: int64
+
+
 
 Assim como em uma consulta a um banco de dados, você pode ordenar de acordo com dados de uma coluna específica de um dicionário. Para isso usamos o argumento by de sort_values( )
 
@@ -1805,10 +3036,112 @@ frame.sort_values(by='a')
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>c</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>67</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>45</td>
+      <td>1</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>67</td>
+      <td>34</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 frame.sort_values(by=['a', 'b'])
 #a e b estão ordenadas
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>c</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>67</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>45</td>
+      <td>1</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>67</td>
+      <td>34</td>
+      <td>80</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ### Indexação duplicada
 
@@ -1820,12 +3153,30 @@ array = pd.Series([23, 45, 60, 90], index=['a', 'b', 'b', 'c'])
 array
 ```
 
+
+
+
+    a    23
+    b    45
+    b    60
+    c    90
+    dtype: int64
+
+
+
 a propriedade is_unique diz se sua Serie é única ou não, se sim, retorna True, se não, False
 
 
 ```python
 array.is_unique
 ```
+
+
+
+
+    True
+
+
 
 ### Métodos estatísticos para DataFrame
 
@@ -1839,10 +3190,65 @@ frame
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Um</th>
+      <th>Dois</th>
+      <th>Três</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20</td>
+      <td>5</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>34</td>
+      <td>6</td>
+      <td>90</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 # SUM() = soma consecutiva
 frame.sum()
 ```
+
+
+
+
+    Um       54
+    Dois     11
+    Três    210
+    dtype: int64
+
+
 
 
 ```python
@@ -1851,10 +3257,30 @@ frame.mean()
 ```
 
 
+
+
+    Um       27.0
+    Dois      5.5
+    Três    105.0
+    dtype: float64
+
+
+
+
 ```python
 # O idxmax() retorna o índice da linha do maior valor
 frame.idxmax()
 ```
+
+
+
+
+    Um      1
+    Dois    1
+    Três    0
+    dtype: int64
+
+
 
 
 ```python
@@ -1863,10 +3289,65 @@ frame.idxmin()
 ```
 
 
+
+
+    Um      0
+    Dois    0
+    Três    1
+    dtype: int64
+
+
+
+
 ```python
 #Soma os dados em todas as linhas
 frame.cumsum()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Um</th>
+      <th>Dois</th>
+      <th>Três</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>20</td>
+      <td>5</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>54</td>
+      <td>11</td>
+      <td>210</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 .describe() nos retorna uma série de dados estatísticos de uma só vez
 
@@ -1876,16 +3357,117 @@ frame.describe()
 ```
 
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Um</th>
+      <th>Dois</th>
+      <th>Três</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>27.000000</td>
+      <td>5.500000</td>
+      <td>105.000000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>9.899495</td>
+      <td>0.707107</td>
+      <td>21.213203</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>20.000000</td>
+      <td>5.000000</td>
+      <td>90.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>23.500000</td>
+      <td>5.250000</td>
+      <td>97.500000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>27.000000</td>
+      <td>5.500000</td>
+      <td>105.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>30.500000</td>
+      <td>5.750000</td>
+      <td>112.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>34.000000</td>
+      <td>6.000000</td>
+      <td>120.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 # max() retorna o valor máximo de uma coluna
 frame.max()
 ```
 
 
+
+
+    Um       34
+    Dois      6
+    Três    120
+    dtype: int64
+
+
+
+
 ```python
 # min() retorna o valor mínimo de uma coluna
 frame.min()
 ```
+
+
+
+
+    Um      20
+    Dois     5
+    Três    90
+    dtype: int64
+
+
 
 ### Ordenação de Series
 
