@@ -831,25 +831,25 @@ print('\nVerificando onde estão os elementos negativos: \n', Randomico < 0)
 
     
     Matriz original: 
-     [[-0.99079562  1.01181049  0.86401586]
-     [-0.64406682  0.48386261 -0.69971868]
-     [ 2.16843313  0.17246836 -1.25798021]
-     [ 0.30799375 -1.46540739 -1.0959528 ]
-     [-0.83963889  1.11747869 -0.89921753]]
+     [[-0.25856713 -1.17675316  0.77887927]
+     [-0.98224411 -0.58485141 -1.14644887]
+     [ 0.101536   -0.43196327  0.66573967]
+     [ 0.76622216  0.70663194  0.19200067]
+     [-0.05518158 -0.73972093  0.64328986]]
     
     Matriz adulterada: 
-     [[0.         1.01181049 0.86401586]
-     [0.         0.48386261 0.        ]
-     [2.16843313 0.17246836 0.        ]
-     [0.30799375 0.         0.        ]
-     [0.         1.11747869 0.        ]]
+     [[0.         0.         0.77887927]
+     [0.         0.         0.        ]
+     [0.101536   0.         0.66573967]
+     [0.76622216 0.70663194 0.19200067]
+     [0.         0.         0.64328986]]
     
     Verificando onde estão os elementos negativos: 
-     [[False False  True]
+     [[ True  True False]
      [False  True  True]
-     [False  True False]
-     [ True  True False]
-     [False  True  True]]
+     [ True  True  True]
+     [ True False  True]
+     [False False  True]]
     
 
 
@@ -863,11 +863,11 @@ print(X_Um)
 #todos os itens o qual queremos trabalhar.
 ```
 
-    [[1.         1.25874674 1.         1.         1.        ]
+    [[1.         1.         1.         1.         1.90635627]
      [1.         1.         1.         1.         1.        ]
-     [1.27392644 1.         1.         1.08771556 1.        ]
-     [1.         1.         1.         1.         1.13484655]
-     [1.         1.         1.0537275  1.         1.        ]]
+     [1.         1.         1.         1.         1.20622635]
+     [1.         1.         1.         1.28932913 1.        ]
+     [1.         1.         2.26088191 1.3110772  1.        ]]
     
 
 ## **Funções de estatísticas e mateméticas para Analise de Dados**
@@ -3574,6 +3574,426 @@ pan.isin([23])
     4    False
     dtype: bool
 
+
+
+## **3) Matplotlib**
+
+### Para importar a biblioteca Matplotlib
+
+
+```python
+import matplotlib.pyplot as plt
+```
+
+Para criar o nosso primeiro gráfico, usamos a função plot da biblioteca matplotlib, que contêm dois argumentos, que são as coordenadas: x e Y
+
+
+```python
+x = np.array([10, 12, 14, 16, 14])
+y = np.sin(x)
+plt.plot(x, y)
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x18364d95ca0>]
+
+
+
+
+    
+![png](output_208_1.png)
+    
+
+
+
+```python
+plt.plot([2, 4, 6], [2, 4, 6])
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x18364e7ea90>]
+
+
+
+
+    
+![png](output_209_1.png)
+    
+
+
+
+```python
+plt.plot([2, 4, 6, 8, 10], [ 10, 8, 6, 4, 2])
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x18364ee6b50>]
+
+
+
+
+    
+![png](output_210_1.png)
+    
+
+
+
+```python
+x = [22, 11, 8, 5]
+y = [14, 56, 4, 2]
+plt.plot(x, y)
+plt.show()
+```
+
+
+    
+![png](output_211_0.png)
+    
+
+
+A função plt.show( ) é usada para exibir o gráfico na tela
+
+
+```python
+x = [1, 2, 3]
+y = np.array([[1, 2], [3, 4], [5, 6]])
+plt.plot(x, y)
+```
+
+
+
+
+    [<matplotlib.lines.Line2D at 0x18364f68e80>,
+     <matplotlib.lines.Line2D at 0x18364f680d0>]
+
+
+
+
+    
+![png](output_213_1.png)
+    
+
+
+## Títulos e descrição do gráfico
+
+Para definir um título ao nosso gráfico usamos o plt.title(). Para criar um texto descritivo das coordenadas usamos xlabel e ylabel, veja:
+
+Obs.: é necessário o uso do comando plt.show( )
+
+
+```python
+x = ['São Paulo', 'Rio de Janeiro', 'Minas Gerais', 'Paraná']; y = [50, 10, 30, 45]
+plt.plot(x, y)
+
+plt.title('Ranking de estados')
+
+plt.xlabel('\nEstados do Brasil')
+plt.ylabel('Ranks')
+
+plt.show()
+```
+
+
+    
+![png](output_215_0.png)
+    
+
+
+## Fonte, estilo, tamanho e cor da fonte
+
+
+```python
+x = ['Aluno A', 'Aluno B', 'Aluno C']; y = [10.0, 4.5, 8.5]
+plt.plot(x, y, color='blue')
+
+plt.title('Nota dos alunos na faculdade\n', fontsize=25, color='green', fontname='Comic Sans MS')
+plt.xlabel('\nAlunos', fontname='Comic Sans MS', fontsize=12)
+plt.ylabel('Notas finais', fontname='Comic Sans MS', fontsize=12)
+
+plt.show()
+```
+
+
+    
+![png](output_217_0.png)
+    
+
+
+
+```python
+x = ['A', 'B', 'C', 'D', 'E', 'F', 'G']; y = [0, 10, 20, 30, 40, 50, 60]
+
+plt.plot(x, y)
+plt.title('Gráfico\n', fontsize=20)
+
+plt.xticks([0, 1, 2, 3, 4, 5, 6])
+plt.yticks([0, 20, 40, 60, 80, 100])
+
+plt.show()
+```
+
+
+    
+![png](output_218_0.png)
+    
+
+
+### Legenda para os gráficos em matplotlib e mais de uma linha
+
+As legendas em gráficos são ilustrações para facilitar o entendimento do observador. Veja que o rótulo de legenda é especificado na argumento label do parâmetro plt.plot( ), a função plt.legend( ) é para criar visualização dessas ilustrações
+
+
+```python
+x = ['Aluno A', 'Aluno B', 'Aluno C']; y = [10.0,3.5,8.5];
+plt.title('Gráfico')
+
+plt.plot(x, y, label='Sala A')
+plt.plot(x, [4.5, 6.7, 2.0], label='Sala B')
+
+plt.legend()
+
+plt.show()
+```
+
+
+    
+![png](output_220_0.png)
+    
+
+
+é possível mudar a cor das linhas do gráfico com o argumento color do parâmetro plt.plot( )
+
+
+```python
+x = ['Aluno A', 'Aluno B', 'Aluno C']; y = [10.0,3.5,8.5];
+plt.title('Gráfico')
+
+plt.plot(x, y, label='Sala A', color='red')
+plt.plot(x, [4.5, 6.7, 2.0], label='Sala B', color='green')
+
+plt.legend()
+
+plt.show()
+```
+
+
+    
+![png](output_222_0.png)
+    
+
+
+cores com números hexadecimal
+
+
+```python
+x = ['Aluno A', 'Aluno B', 'Aluno C']; y = [10.0,3.5,8.5];
+plt.title('Gráfico')
+
+plt.plot(x, y,  color='#f0791b', marker='.')
+plt.plot(x, [4.5, 6.7, 2.0],  color='#f049aa', marker='.')
+#Com Marker é possível criar vértice nas linhas do nosso gráfico.
+
+#Outro jeito de criar legendas
+plt.legend(['Sala A', 'Sala B'])
+
+plt.show()
+```
+
+
+    
+![png](output_224_0.png)
+    
+
+
+### Marcadores em matplotlib
+
++ link: [documentação de plot( )](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
+
+No link você encontra documentação inteira sobre a função plot( ) de matplotlib, inclusive a tabela de marcadores, vermos alguns aqui:
+
+
+```python
+x = np.array([['Sala A', 'Sala B'], [56, 43]])
+
+#O marcador 'D' cria losangos
+plt.plot(x[0], x[1], 'D')
+plt.title('Gráfico\n')
+
+plt.show()
+```
+
+
+    
+![png](output_226_0.png)
+    
+
+
+
+```python
+y = [0, 10, 20, 30, 40]; x = ['A', 'B', 'C', 'D', 'E']
+
+# O marcador 'x' cria X no gráfico
+plt.plot(x, y, 'x')
+
+plt.show()
+```
+
+
+    
+![png](output_227_0.png)
+    
+
+
+
+```python
+y = [0, 10, 20, 30, 40]; x = ['A', 'B', 'C', 'D', 'E']
+
+# é possível combinar marcadores
+plt.plot(x, y, 'x--')
+
+plt.show()
+```
+
+
+    
+![png](output_228_0.png)
+    
+
+
+
+```python
+x = np.array([0, 10, 20, 60, 120])
+print(x)
+
+plt.plot(x, x**2, '.--' ,color='red')
+plt.title('Gráfico\n')
+plt.legend(['Legend'])
+
+plt.show()
+```
+
+    [  0  10  20  60 120]
+    
+
+
+    
+![png](output_229_1.png)
+    
+
+
+### Alterando a dimensão do gráfico
+
+plt.figure( )
+
+O redimensionamento do gráfico é feito em casos de necessidade de impressão do gráfico
+
+
+```python
+x = np.arange(18)
+
+plt.figure(figsize=(5, 3), dpi=150)
+
+plt.plot(x, x**2, 'g.--')
+plt.title('Mudando o tamanho')
+
+plt.show()
+```
+
+
+    
+![png](output_231_0.png)
+    
+
+
+### Salvar o seu gráfico
+
+Em alguns casos você queira salvar o gráfico ao invés de só deixá-lo no código propriamente.
+
+**plt.savefig('Digite o nome da imagem mais sua extensão, ex.: png ou jpeg')**
+
+
+```python
+x = np.arange(25)
+
+plt.plot(x, x**2, 'b.--')
+
+plt.savefig('Meugráfico.png', dpi=300)
+
+plt.show()
+```
+
+
+    
+![png](output_233_0.png)
+    
+
+
+### Gráfico de coluna
+
+Para criar gráfico de coluna, usamos o comando:
+
+- plt.bar( eixo x, eixo y)
+
+
+```python
+x = ['A', 'B', 'C', 'D']
+y = [20, 40, 30, 60]
+
+# Colocando título no gráfico
+plt.title('Gráfico\n', fontsize=25)
+
+plt.bar(x, y)
+
+plt.figure(figsize=(5, 3), dpi=200)
+
+plt.show()
+```
+
+
+    
+![png](output_235_0.png)
+    
+
+
+
+    <Figure size 1000x600 with 0 Axes>
+
+
+
+```python
+x = ['A', 'B', 'C', 'D']
+y = [20, 40, 30, 60]
+
+# Colocando título no gráfico
+plt.title('Gráfico\n', fontsize=20)
+
+bar = plt.bar(x, y)
+
+# O 0 zero quer dizer que vai pegar a primeira coluna
+bar[0].set_hatch('/')
+bar[1].set_hatch('.')
+bar[2].set_hatch('-')
+bar[3].set_hatch('o')
+
+plt.figure(figsize=(5, 3), dpi=200)
+
+plt.show()
+```
+
+
+    
+![png](output_236_0.png)
+    
+
+
+
+    <Figure size 1000x600 with 0 Axes>
 
 
 
